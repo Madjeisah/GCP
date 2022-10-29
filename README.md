@@ -5,7 +5,7 @@ A novel **G**raph **C**ontrastive multiview learning via **P**re-training framew
 For pre-training task, run:
 `python execute.py --logdir nc_ptrain.gcn --dataset nci1 --model gcn --augment_list random_walk_subgraph  node_attr_mask`
 
-You can add other argument like `--ptrain_percent 2.0`, which is the amount of data sample to use for pretrained embeddings. And also change the number of workers depending on your CPU, like, '--num_workers 4`. The default is set to 8. 
+You can add other argument like `--ptrain_percent 2.0`, which is the amount of data sample to use for pretrained embeddings. And also change the number of workers depending on your CPU, like, `--num_workers 4`. The default is set to 8. 
 
 The model options are gcn, graphsage and gin.
 
