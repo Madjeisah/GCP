@@ -14,7 +14,7 @@ Augmentation choices are "node_dropping", "node_attr_mask", "edge_perturbation",
 You can add other argument like `--ptrain_percent 2.0`, which is the amount of data sample to use for pretrained embeddings. And also change the number of workers depending on your CPU, like, `--num_workers 4`. The default is set to 8. 
 
 ## Downstream Tasks
-For finetunning task, run:
+For finetuning task, run:
 `python classification.py --load nc_ptrain.gcn --logdir nc_ftune.gcn --dataset nci1 --model gcn`
 
 
