@@ -1,2 +1,2 @@
 # GCP
-A novel **G**raph contrastive multiview learning via pre-training framework (GCP).
+A novel **G**raph **C**ontrastive multiview learning via ***P***re-training framework (GCP).
