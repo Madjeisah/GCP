@@ -9,7 +9,6 @@ from torch_geometric.nn.inits import glorot, zeros
 from torch.nn import Parameter, Sequential, Linear, BatchNorm1d
 from torch_geometric.utils import remove_self_loops, add_self_loops
 from torch_geometric.nn import GCNConv, GINConv, SAGEConv, global_add_pool, global_mean_pool
-# "SGConv, GATConv." We can add more models, however, our focuse is on GCN, GAT and GSAGE
 
 class Encoder(torch.nn.Module):
 	"""
@@ -72,8 +71,7 @@ class Encoder(torch.nn.Module):
 		best_val_loss = ckpt["best_val_loss"]
 		optimizer.load_state_dict(ckpt["optimizer_state"])
 		return epoch, best_train_loss, best_val_loss
-
-
+		
 class GCN(torch.nn.Module):
 	"""
 	For a thorough understanding, visit:
@@ -135,7 +133,6 @@ class GCN(torch.nn.Module):
 
 		return global_rep, x
 
-
 class GraphSAGE(torch.nn.Module):
 	"""
 	For a thorough understanding, visit:
@@ -196,13 +193,12 @@ class GraphSAGE(torch.nn.Module):
 
 		return global_rep, x
 
-
 class GIN(torch.nn.Module):
 	"""
 	For a thorough understanding, visit:
 	How Powerful are Graph Neural Networks? <https://arxiv.org/abs/1810.00826>`.
 	"""
-
+	
 	def __init__(self, feat_dim, hidden_dim, n_layers=3, pool="sum", bn=False, xavier=True):
 		super(GIN, self).__init__()
 
@@ -254,16 +250,14 @@ class GIN(torch.nn.Module):
 
 		return global_rep, x
 
-
-
-class GraphClassificationModel(nn.Module):
+class ClassificationModel(nn.Module):
 	"""
 	Model for graph classification.
 	Encoder followed by linear layer.
 	"""
 
 	def __init__(self, feat_dim, hidden_dim, n_layers, output_dim, gnn, load=None):
-		super(GraphClassificationModel, self).__init__()
+		super(ClassificationModel, self).__init__()
 
 		self.encoder = Encoder(feat_dim, hidden_dim, n_layers=n_layers, gnn=gnn)
 
@@ -303,8 +297,3 @@ class GraphClassificationModel(nn.Module):
 		best_val_loss = ckpt["best_val_loss"]
 		optimizer.load_state_dict(ckpt["optimizer_state"])
 		return epoch, best_train_loss, best_val_loss
-		
-		
-		
-		
-		
