@@ -107,7 +107,7 @@ def main(args):
 	print(f"No. of Classes: {num_classes}")
 
 	# classification model is a GNN encoder followed by linear layer
-	model = GraphClassificationModel(input_dim, args.feat_dim, n_layers=args.layers, output_dim=num_classes, gnn=args.model, load=args.load)
+	model = ClassificationModel(input_dim, args.feat_dim, n_layers=args.layers, output_dim=num_classes, gnn=args.model, load=args.load)
 	model = model.to(device)
 
 	optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
@@ -150,9 +150,7 @@ def main(args):
 		model.eval()
 			
 		t_loss, t_accuracy = run(args, best_epoch, "test", test_loader, model, optimizer)
-		# print("Test Epoch Loss: {}, Accuracy: {}".format(t_loss,t_accuracy))
 		print(f"Test Epoch Loss: {t_loss:.4f}, Accuracy: {t_accuracy:.4f}")
-		#logger.add_scalar("t_accuracy Loss", t_loss, epoch)
 
 		test_accs.append(t_accuracy)
 
