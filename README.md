@@ -1,5 +1,5 @@
 # GCP
-A novel **G**raph **C**ontrastive multiview learning via **P**re-training framework (GCP).
+**G**raph **C**ontrastive multi-view learning: A **P**re-training framework for graph classification
 
 ## Pre-training
 For pre-training task, run:
